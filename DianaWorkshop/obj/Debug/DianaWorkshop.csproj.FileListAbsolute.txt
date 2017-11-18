@@ -1,0 +1,12 @@
+c:\users\user\documents\visual studio 2015\Projects\DianaWorkshop\DianaWorkshop\bin\Debug\DianaWorkshop.exe.config
+c:\users\user\documents\visual studio 2015\Projects\DianaWorkshop\DianaWorkshop\obj\Debug\DianaWorkshop.csprojResolveAssemblyReference.cache
+c:\users\user\documents\visual studio 2015\Projects\DianaWorkshop\DianaWorkshop\obj\Debug\DianaWorkshop.Form1.resources
+c:\users\user\documents\visual studio 2015\Projects\DianaWorkshop\DianaWorkshop\obj\Debug\DianaWorkshop.Properties.Resources.resources
+c:\users\user\documents\visual studio 2015\Projects\DianaWorkshop\DianaWorkshop\obj\Debug\DianaWorkshop.csproj.GenerateResource.Cache
+c:\users\user\documents\visual studio 2015\Projects\DianaWorkshop\DianaWorkshop\bin\Debug\DianaWorkshop.exe
+c:\users\user\documents\visual studio 2015\Projects\DianaWorkshop\DianaWorkshop\bin\Debug\DianaWorkshop.pdb
+c:\users\user\documents\visual studio 2015\Projects\DianaWorkshop\DianaWorkshop\bin\Debug\ScintillaNET.dll
+c:\users\user\documents\visual studio 2015\Projects\DianaWorkshop\DianaWorkshop\bin\Debug\ScintillaNET.xml
+c:\users\user\documents\visual studio 2015\Projects\DianaWorkshop\DianaWorkshop\obj\Debug\DianaWorkshop.exe
+c:\users\user\documents\visual studio 2015\Projects\DianaWorkshop\DianaWorkshop\obj\Debug\DianaWorkshop.pdb
+c:\users\user\documents\visual studio 2015\Projects\DianaWorkshop\DianaWorkshop\obj\Debug\DianaWorkshop.NameDialogue.resources

@@ -1,0 +1,122 @@
+﻿<html>
+<head>
+<script>
+var lvl = 1;
+function next()
+{
+	document.getElementById("l_" + (lvl++)).style["display"] = "none";
+	document.getElementById("l_" + (lvl)).style["display"] = "";
+}
+function prev()
+{
+	document.getElementById("l_" + (lvl--)).style["display"] = "none";
+	document.getElementById("l_" + (lvl)).style["display"] = "";
+}
+</script>
+</head>
+<body style="text-align: right; direction: rtl; font-family: arial; line-height: 1.5">
+<div id="l_1" style="">
+<h1>בנאי המחלקה</h1>
+כשרצינו ליצור אובייקט חדש של המחלקה Car, זה לקח לנו 4 שורות:
+<pre style="text-align: left; direction: ltr;">
+Car c = new Car();
+c.Model = ...
+c.Company = ...
+c.ProductionYear = ...
+</pre>
+חייבת להיות דרך נוחה יותר...<BR>
+כשאחנו כותבים new Car עם סוגריים ריקות, אנחנו בעצם קוראים לפעולה, והפעולה הזו אחראית "ליצור" את המחלקה.
+<BR>
+הפעולה הזו נקראת 
+<B>בנאי</B>
+של המחלקה.
+<BR>
+אם לא הגדרנו למחלקה בנאי משלנו, לא יקרה שום דבר מיוחד כאשר ניצור אובייקט חדש בעזרת new Car().
+<BR>
+אבל מה אם כן נגדיר בנאי משלנו?
+</div>
+<div id="l_2" style="display: none;">
+<h1>הגדרת הבנאי</h1>
+הבנאי של המחלקה (Constructor) מוגדר בצורה כזו:
+<pre style="text-align: left; direction: ltr;">
+class Student
+{
+	...
+	
+	public Student( < parameters > )
+	{
+	
+	}
+}
+</pre>
+כאשר במקום שומר המקום parameters, הבנאי יכול לקבל פרמטרים, כמו כל פעולה רגילה.
+<BR>
+<B>אבל, </B> הבנאי לא יכול להחזיר ערך, ובגלל זה גם לפעולת הבנאי אין שום ערך החזרה - אפילו לא void.
+<BR>
+שם הבנאי חייב להיות זהה לשם המחלקה.
+<BR>
+למחלקה יכולים להיות כמה בנאים.
+<BR><BR>
+לדוגמא, נכתוב בנאי למחלקה Student שיקבל שני פרמטרים - שם התלמיד והציון שלו.
+<pre style="text-align: left; direction: ltr;">
+class Student
+{
+	private string Name;
+	private int Grade;
+	
+	... getters, setters ...
+	
+	public Student(string name, int grade)
+	{
+		SetGrade(grade);
+		SetName(name);
+	}
+}
+</pre>
+השימוש בפעולות הגישה בתוך הבנאי הוא רק כדי שלא נצטרך להעתיק את הקוד של אימות הקלט פעמיים. בתוך הבנאי היה ניתן להשים את הערכים
+ישר אל תוך השדות, להדפיס הודעות, ליצור משתנים, ולעשות כל דבר שאפשר בפעולה רגילה.
+<BR>
+</div>
+<div id="l_3" style="display: none;">
+<h1>הגדרת בנאי למחלקה Car</h1>
+הגדירו בנאי למחלקה Car שיקבל שלושה פרמטרים, וישים את הערכים שלהם בשדות המחלקה.
+<BR>
+* אין צורך באימות קלט או בשימוש בפעולות גישה.
+<BR><BR>
+כשתסיימו, כנראה שתשימו לב לשגיאה הבאה:
+<pre style="text-align: left; direction: ltr;">
+'Workshop.Car' does not contain a constructor that takes 0 arguments
+</pre>
+למה זה קורה?
+<BR>
+כאשר אנחנו לא מגדירים בנאי משלנו, C# מגדיר אוטומטית עבורינו בנאי שלא מקבל פרמטרים, ולא עושה כלום.
+<BR>
+ברגע שהגדרנו בנאי משלנו שכן מקבל פרמטרים, הבנאי שלא מקבל פרמטרים נעלם, כי כבר יש בנאי אחר.
+<BR>
+לכן זה לא אפשרי לקרוא לnew Car ללא פרמטרים, חייבים לספק את הפרמטרים שהבנאי שבנינו דורש.
+<BR>
+איך נפתור את זה?
+<BR><BR>
+<B>נשתמש בעובדה שלמחלקה מותר להכיל יותר מבנאי אחד!</B>
+<BR>
+נגדיר בנאי נוסף, שלא יקבל פרמטרים, ולא יעשה כלום.
+<BR>
+נסו להגדיר במחלקה Car בנאי שלא יקבל פרמטרים, ויהיה ריק - שלא יעשה דבר. אם הבנאי לא עושה דבר, ערכי השדות של המחלקה יהיו ערכי ברירת המחדל של הטיפוסים.
+<BR>
+כאשר סיימתם, לחצו "המשך"
+</div>
+<div id="l_4" style="display: none;">
+<h1>בנאי - תרגיל סופי</h1>
+שנו את פעולת הMain כך שתגדיר את האובייקט myCar בעזרת הבנאי שכתבנו, ולא הבנאי הריק. במקום לתת את שלושת הערכים לשדות בשורות הבאות,
+הכניסו אותם כפרמטרים לבנאי!
+<BR>
+הדפיסו את תיאור המכונית בעזרת הפעולה PrintDetails().
+<BR><BR>
+<B>כשסיימתם, לחצו "test"</b>
+</div>
+<br/><br/>
+<input type="button" value="הקודם" onclick="prev()" />
+<input type="button" value="המשך" onclick="next()" />
+
+</body>
+</html>

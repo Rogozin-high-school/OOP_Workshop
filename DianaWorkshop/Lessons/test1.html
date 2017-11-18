@@ -1,0 +1,79 @@
+﻿<html>
+<head>
+<script>
+var lvl = 1;
+function next()
+{
+	document.getElementById("l_" + (lvl++)).style["display"] = "none";
+	document.getElementById("l_" + (lvl)).style["display"] = "";
+}
+function prev()
+{
+	document.getElementById("l_" + (lvl--)).style["display"] = "none";
+	document.getElementById("l_" + (lvl)).style["display"] = "";
+}
+</script>
+</head>
+<body style="text-align: right; direction: rtl; font-family: arial; line-height: 1.5">
+<div id="l_1" style="">
+<h1>Practice makes perfect!</h1>
+בשלבים הבאים לא תלמדו משהו חדש, רק נתרגל מה שכבר ראינו.<BR>
+כל עמוד יהיה תוספת נוספת לתרגיל שלכם, לכן, בדקו את התוספות שלכם כל פעם בעזרת לחצן ה-Run ורק כשסיימתם את כל השלבים לחצו Test.
+<BR><BR>
+<B>לחצו על "המשך" לתרגיל הראשון</B></BR>
+</div>
+<div id="l_2" style="display: none;">
+<h1>Playing cards</h1>
+חברת Zynga עובדת על משחק קלפים חדש, ונתבקשתם לעזור עם אחת המחלקות - Card.
+<br/>
+לפי דרישות החברה, המחלקה צריכה להכיל שני שדות פשוטים - Symbol מטיפוס char, ו-Strength, מטיפוס int.
+<BR>
+<BR>
+<B>הגדירו את המחלקה Card עם שני השדות שלה. כרגע הגדירו אותם כציבוריים. בדקו שהמחלקה עובדת בעזרת תוכנית Main</b>
+<br/><br/>
+* זכרו להגדיר את המחלקה מעל מחלקת Program, ולא בתוכה.
+<BR>
+כשסיימתם לחצו "המשך"
+</div>
+<div id="l_3" style="display: none;">
+<h1>הוספת פעולות גישה</h1>
+שנו את הAccess modifiers של שדות המחלקה כך שיהיו פרטיים, ולא ציבוריים.<BR>
+הוסיפו פעולות גישה לשני השדות, תנו להם שמות מתאימים והוסיפו אותם למחלקה.<BR><BR>
+כשסיימתם, לחצו המשך.
+</div>
+<div id="l_4" style="display: none;">
+<h1>אימות קלט בתוך פעולות ההשמה (Setters)</h1>
+<B>ישנם כמה הגבלות על השדות של המחלקה Card.</B>
+<BR>
+השדה Strength יכול להכיל מספרים מ-2 ועד 14 - 2 מייצג את המספר 2, 11 מייצג נסיך, 13 מלך, 14 אס.
+<BR>
+השדה Symbol יכול להכיל רק את ארבעת הסימנים שיש לקלפים - יהלום, לב, תלתן ועלה. לכן, הוא יוכל להכיל רק את התווים הבאים:
+<ul style="text-align: left; direction: ltr;">
+<li>'c' - clubs</li>
+<li>'s' - spades</li>
+<li>'d' - diamonds</li>
+<li>'h' - hearts</li>
+</ul>
+ערכו את פעולות הSetters שלכם כך שיאמתו את הפרמטר שקיבלו, ואם הפרמטר לא טוב, על הפעולות להדפיס למסך "Invalid Argument."
+<BR><BR>
+בדקו את המחלקה והפעולות שלכם בעזרת פונקציית הMain.
+<BR>
+כשסיימתם, לחצו "המשך"
+</div>
+<div id="l_5" style="display: none;">
+<h1>שימוש במחלקה</h1>
+כתבו תוכנית שתקבל 2 פרטים של קלפים (תו שמייצג סימן ומספר שמייצג ערך) ותגיד אם הם מאותו צבע או מספר.<BR>
+אם הם מאותו צבע, יודפס COLOR<BR>
+אם הם מאותו מספר, יודפס STRENGTH<BR>
+אם גם וגם, יודפס BOTH<BR><BR>
+
+<B>לאחר שסיימתם, לחצו על test ובדקו אם הכל עובד</B>
+<BR><BR>
+* על התוכנית לקבל קודם סימן ואז מספר
+</div>
+<br/><br/>
+<input type="button" value="הקודם" onclick="prev()" />
+<input type="button" value="המשך" onclick="next()" />
+
+</body>
+</html>

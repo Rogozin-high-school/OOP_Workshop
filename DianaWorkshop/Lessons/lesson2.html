@@ -1,0 +1,96 @@
+﻿<html>
+<head>
+<script>
+var lvl = 1;
+function next()
+{
+	document.getElementById("l_" + (lvl++)).style["display"] = "none";
+	document.getElementById("l_" + (lvl)).style["display"] = "";
+}
+function prev()
+{
+	document.getElementById("l_" + (lvl--)).style["display"] = "none";
+	document.getElementById("l_" + (lvl)).style["display"] = "";
+}
+</script>
+</head>
+<body style="text-align: right; direction: rtl; font-family: arial; line-height: 1.5">
+<div id="l_1" style="">
+<h1>שלב 1</h1>
+קצת מונחים:
+<BR>
+מחלקה - התיאור של הטיפוס - מה יש בתוכו, מה הוא עושה, וכו'
+<BR>
+שדה - כל משתנה המוגדר בתוך המחלקה הוא שדה של המחלקה. למשל - במחלקה Student, השדות הם Grade ו-Name.
+<BR>
+תכונה - שם נרדף לשדה. לרוב משתמשים במונח האנגלי Property.
+<BR><BR>
+<B>יכול להיות שעלתה השאלה, מה המילה public עושה?</B>
+<BR>
+המילה public לפני הגדרת השדה נועדה לציין שהשדה הוא ציבורי - ז"א, שניתן לגשת אליו מחוץ למחלקה. מה זאת אומרת?
+<BR><BR>
+עכשיו ננסה ליצור משתנה מהטיפוס שיצרנו, ואז נראה איך משתמשים בו.
+</div>
+<div id="l_2" style="display: none;">
+<h1>יצירת עצמים</h1>
+כמו שראינו בשלב הקודם, ניתן להגדיר עצם מטיפוס מסוים באותה צורה שמגדירים כל משתנה רגיל מטיפוס רגיל.
+<BR>
+* עצם - הכינוי למשתנה מטיפוס שהוגדר על ידי מחלקה. למשל - משתנה מסוג Student הוא עצם, אבל משתנה מסוג int הוא לא.
+<BR>
+ניצור עצם מהטיפוס Car שבנינו בשלב הקודם:
+<pre style="text-align: left; direction: ltr;">
+public static void Main(string[] args)
+{
+	Car myCar;
+}
+</pre>
+כעת, האובייקט myCar מכיל את הערך null. הערך null נועד לציין חוסר ערך - שהאובייקט לא מכיל כלום.
+<BR>
+נאתחל את האובייקט למופע חדש של המחלקה Car.
+<BR>
+* מופע - instance - בעוד שהמחלקה מגדירה רק אילו שדות/ערכים יש לטיפוס הנתונים שלנו, מופע של טיפוס הנתונים הוא עצם ממשי שמחזיק ערכים ממשיים.
+<BR>
+<B>דוגמא לכך:</B>
+המחלקה "מורה" תכיל שני שדות - שם וצבע תיק (לדוגמא). זוהי המחלקה.
+<BR>
+יש מורה ששמה דיאנה וצבע התיק שלה הוא חום. זהו המופע - אובייקט ספציפי של הטיפוס "מורה".
+<BR><BR>
+נאתחל את האובייקט myCar למופע חדש של המחלקה Car:
+<pre style="text-align: left; direction: ltr;">
+public static void Main(string[] args)
+{
+	Car myCar = new Car();
+}
+</pre>
+המילה השמורה new תיצור אובייקטים/מופעים חדשים של מחלקות שונות בC#.
+</div>
+<div id="l_3" style="display: none;">
+<h1>השמת ערכים בתוך השדות</h1>
+עד עכשיו אתחלנו את האובייקט myCar. אבל מה עם השדות שבתוכו? עלינו לאתחל גם אותם!
+<BR>
+ניתן לפנות אל החברים* של המחלקה בעזרת שימוש בנקודה. דוגמה:
+<pre style="text-align: left; direction: ltr;">
+public static void Main(string[] args)
+{
+	Car myCar = new Car();
+	myCar.Model = "Model S";
+	myCar.Company = "Tesla";
+}
+</pre>
+בדוגמה זו אתחלנו את השדות Model ו-Company בערכים Model S ו-Tesla, בהתאמה. בגלל שלא אתחלנו את השדה השלישי, הוא יישאר עם הערך ברירת מחדל של הטיפוס int, שהוא 0.
+<BR>
+* חבר - כרגע ההתייחסות לשדות, בהמשך גם לפעולות המחלקה. חברי המחלקה הם השדות והפעולות שלה.
+<BR>
+נסו בעצמכם ליצור מופע חדש של המחלקה Car, לחצו על המשך כדי לתרגל.
+</div>
+<div id="l_4" style="display: none;">
+בתוך פונקציית הMain, צרו משתנה מסוג Car באיזה שם שתבחרו. אתחלו את השדות Model ו-Company למה שתבחרו, ובשדה ProductionYear רשמו 2005.
+<br>
+הדפיסו את השנה ואת שם המודל של המכונית בעזרת Console.WriteLine().
+</div>
+<br/><br/>
+<input type="button" value="הקודם" onclick="prev()" />
+<input type="button" value="המשך" onclick="next()" />
+
+</body>
+</html>

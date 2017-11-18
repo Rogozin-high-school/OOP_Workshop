@@ -1,0 +1,49 @@
+﻿<html>
+<head>
+<script>
+var lvl = 1;
+function next()
+{
+	document.getElementById("l_" + (lvl++)).style["display"] = "none";
+	document.getElementById("l_" + (lvl)).style["display"] = "";
+}
+function prev()
+{
+	document.getElementById("l_" + (lvl--)).style["display"] = "none";
+	document.getElementById("l_" + (lvl)).style["display"] = "";
+}
+</script>
+</head>
+<body style="text-align: right; direction: rtl; font-family: arial; line-height: 1.5">
+<div id="l_1" style="">
+<h1>שימוש בפעולות מחלקה</h1>
+השימוש בפעולות מחלקה הוא מאוד אינטואיטיבי:
+<pre style="text-align: left; direction: ltr;">
+public static void Main(string[] args)
+{
+	Dog puppy = new Dog();
+	puppy.Name = "Shuki";
+	puppy.Bark();
+}
+</pre>
+הקריאה נעשית, כמו הגישה לשדות המחלקה, בעזרת הנקודה, והיא נקראת עם סוגריים רגילים כמו כל פעולה.<BR>
+היא יכולה לקבל פרמטרים, להחזיר ערך, לקרוא לפונקציות אחרות ואף לעצמה, שוב, כמו כל פעולה.<BR>
+<BR>
+<B>נסו להשתמש בפעולות המחלקה Car שיצרתם מקודם</B>
+</div>
+<div id="l_2" style="display: none;">
+<h1>שימוש בפעולות מחלקה - תרגיל</h1>
+כתבו תכנית, בה צרו אובייקט מסוג Car, תנו לו את הערכים הבאים:
+<br/><div style="text-align: left; direction: ltr;">
+Model: "Carrera GT"<br/>
+Company: "Porsche"<br/>
+Year: 2013<br/>
+</div>
+לאחר מכן קראו לפעולה PrintDetails() של האובייקט שיצרתם.
+</div>
+<br/><br/>
+<input type="button" value="הקודם" onclick="prev()" />
+<input type="button" value="המשך" onclick="next()" />
+
+</body>
+</html>

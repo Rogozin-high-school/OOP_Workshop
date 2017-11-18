@@ -1,0 +1,41 @@
+﻿<html>
+<head>
+	<title>Competitive Workshop</title>
+	<style>
+		.didiv {
+			min-height: 7%;
+			border-radius: 7px;
+			width: 100%;
+			font-size: larger;
+			font-family: cursive;
+			vertical-align: middle;
+			display: flex;
+			align-items: center;
+			padding-left: 3%;
+		}
+	</style>
+	<script src="jquery.js"></script>
+	<script>
+		$(document).ready(function() {
+			a = function() {
+				console.log("a");
+				$.ajax({
+					url: "http://presentit.co.il/OOP/feed.txt",
+					type: "GET",
+					success: function(e) {
+						console.log("a res");
+						$("#feed").html(e);
+					}
+				});
+			};
+			setInterval(a, 5000);
+			a();
+		});
+	</script>
+</head>
+<body>
+	<div id="feed" style="position: fixed; width: 100%; height: 100%; top: 0; left: 0; background-color: lightgray;">
+	
+	</div>
+</body>
+</html>

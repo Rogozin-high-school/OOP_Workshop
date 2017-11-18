@@ -1,0 +1,80 @@
+﻿<html>
+<head>
+<script>
+var lvl = 1;
+function next()
+{
+	document.getElementById("l_" + (lvl++)).style["display"] = "none";
+	document.getElementById("l_" + (lvl)).style["display"] = "";
+}
+function prev()
+{
+	document.getElementById("l_" + (lvl--)).style["display"] = "none";
+	document.getElementById("l_" + (lvl)).style["display"] = "";
+}
+</script>
+</head>
+<body style="text-align: right; direction: rtl; font-family: arial; line-height: 1.5">
+<div id="l_1" style="">
+<h1>פעולות מחלקה</h1>
+הגדרנו את השדות של המחלקה כדברים שלמחלקה יש:<BR>
+למשל:<BR>
+לכלכ יש
+<B>שם</B><BR>
+לכלכ יש
+<B>צבע פרווה</B><BR>
+לכלכ יש
+<B>גזע</B><BR>
+לכלכ יש
+<B>אורך זנב</B><BR>
+וכו' וכ'. נגדיר את הפעולות של המחלקה כדברים שהמחלקה יכולה <B>לעשות</B>. למשל:
+<BR>
+כלב יכול
+<B>לנבוח</B><BR>
+כלב יכול
+<B>לאכול</B><BR>
+כלב יכול
+<B>לשחק</B><BR>
+וכו'.<BR><BR>
+נראה איך אנחנו יכולים להגדיר את הפעולות של מחלקה:
+</div>
+<div id="l_2" style="display: none;">
+<h1>פעולות המחלקה Dog</h1>
+נגדיר מחלקה אחרת בשם Dog. השדות כבר נתונים - Name, FurColor, Race.
+<br/>
+נכתוב פעולת Bark() שתדפיס את שם הכלב ואת המילה Woof!
+<br/>
+בתוך המחלקה Dog:
+<pre style="text-align: left; direction: ltr;">
+class Dog
+{
+	public string FurColor;
+	public string Name;
+	public string Race;
+	
+	public void Bark()
+	{
+		Console.WriteLine(Name + " says Woof!");
+	}
+}
+</pre>
+הגדרת פעולת מחלקה היא כמו הגדרת פעולה רגילה.
+<BR>
+למה?
+<BR>
+<B>כי כל פעולה היא פעולת מחלקה! האם שמתם לב שהפעולה Main(string[] args) תמיד נכתבת בתוך מחלקה הנקראת Program?</B>
+<BR>
+לחצו המשך כדי לנסות להגדיר פעולות מחלקה בעצמכם!
+</div>
+<div id="l_3" style="display: none;">
+<h1>הפעולות PrintDetails() ו-Drive()</h1>
+בואו נניח שהמחלקה Car כוללת שתי פעולות - האחת מדפיסה את פרטי המכונית (מודל, חברה ושנת ייצור) והשנייה מדפיסה את המחרוזת "Vroom Vroom"
+<BR><BR>
+השלימו במחלקה את הפעולה PrintDetails והוסיפו את הפעולה Drive().
+</div>
+<br/><br/>
+<input type="button" value="הקודם" onclick="prev()" />
+<input type="button" value="המשך" onclick="next()" />
+
+</body>
+</html>

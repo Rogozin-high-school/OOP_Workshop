@@ -1,0 +1,146 @@
+﻿<html>
+<head>
+<script>
+var lvl = 1;
+function next()
+{
+	document.getElementById("l_" + (lvl++)).style["display"] = "none";
+	document.getElementById("l_" + (lvl)).style["display"] = "";
+}
+function prev()
+{
+	document.getElementById("l_" + (lvl--)).style["display"] = "none";
+	document.getElementById("l_" + (lvl)).style["display"] = "";
+}
+</script>
+</head>
+<body style="text-align: right; direction: rtl; font-family: arial; line-height: 1.5">
+<div id="l_1" style="">
+<h1>פעולות גישה - Getters & Setters</h1>
+המכונית הראשונה הומצאה בשנת 1885. ז"א, לא יהיה הגיוני לאפשר לשורת קוד כזו לרוץ:
+<pre style="text-align: left; direction: ltr;">
+Car c = new Car();
+c.ProductionYear = 1492;
+</pre>
+נצטרך, מה שנקרא, אימות קלט. למשל, אם נרצה לקבל פרטי מכונית מהלקוח, נוכל לאמת את שנת הייצור בצורה הבאה:
+<pre style="text-align: left; direction: ltr;">
+public static void Main(string[] args)
+{
+	Car c = new Car();
+	Console.WriteLine("Enter car production year:");
+	int year = int.Parse(Console.ReadLine());
+	if (year > 1884)
+	{
+		c.ProductionYear = year;
+	}
+}
+</pre>
+אבל ההגיון בדוגמת הקוד הזו מעט פגום... האם האחריות לוידוא הקלט היא על התוכנית הראשית?
+<BR><BR><B>
+לא הגיוני יותר שהאימות יהיה בתוך המחלקה?
+</B>
+</div>
+<div id="l_2" style="display: none;">
+<h1>Access modifiers</h2>
+כדי לשלוט על הערכים הנכנסים אל תוך שדות המחלקה, עלינו לאסור על דבר כזה לקרות:
+<BR>
+<pre style="text-align: left; direction: ltr;">
+Car c = new Car();
+c.ProductionYear = ...;
+</pre>
+אם נאפשר לקוד כזה לרוץ, לתוך השדה ProductionYear יהיה אפשרי להכניס כל ערך! זה לא מה שאנחנו רוצים...
+<BR><BR>
+זוכרים את ההערה מהשלב הקודם? על המילה public?
+<BR>
+<hr/>
+<I>
+<B>יכול להיות שעלתה השאלה, מה המילה public עושה?</B>
+<BR>
+המילה public לפני הגדרת השדה נועדה לציין שהשדה הוא ציבורי - ז"א, שניתן לגשת אליו מחוץ למחלקה. מה זאת אומרת?
+</I>
+<hr/>
+אז מה שאנחנו רוצים בעצם לעשות... זה להפוך את השדות לשדות <B>פרטיים</B>, ולא ציבוריים.
+<BR>
+נסו לשנות בקוד את המילה public למילה private. נסו להריץ והסתכלו על התוצאה שבחלון הפלט.
+<BR>
+סביר להניח שתראו את השגיאה הבאה:
+<pre style="text-align: left; direction: ltr;">
+Error (CS0122): 'Workshop.Car.Model' is inaccessible due to its protection level
+Error (CS0122): 'Workshop.Car.Company' is inaccessible due to its protection level
+Error (CS0122): 'Workshop.Car.ProductionYear' is inaccessible due to its protection level
+</pre>
+ההערות האלו אומרות שהשדות של המחלקה לא "ציבוריים מספיק" כדי שנוכל לגשת אליהם מחוץ למחלקה.
+<BR><BR>
+<B>public</B> - ניתן לגשת אל השדות גם מחוץ למחלקה.
+<BR><B>private</b> - ניתן לגשת לשדות רק מתוך פעולות המחלקה.
+</div>
+<div id="l_3" style="display: none;">
+<h1>Getters & Setters</h2>
+ואם בכל זאת נרצה לספק דרך שבה נוכל לשנות את השדות של המחלקה מבחוץ?<BR>
+בשביל זה קיימות פעולות הגישה - Getters ו-Setters.<BR><BR>
+<h3>Getters</h3>
+Getters הן פעולות המאפשרות לקבל את הערך של שדה מסוים. כל מה שהפעולה עושה היא להחזיר את הערך של השדה.<BR>
+לדוגמא, ניצור את הפעולה GetModel() למחלקה Car.
+<pre style="text-align: left; direction: ltr;">
+class Car
+{
+	...
+	private string Model;
+	
+	public string GetModel()
+	{
+		return Model;
+	}
+}
+</pre>
+בעזרת פעולת Getter, נוכל להסתכל על השדות של המחלקה מבחוץ (מתוך פעולות אחרות שלא בתוך המחלקה) בעזרת הפונקציה GetModel(), למשל.<BR>
+כדי להדפיס את המודל של מכונית מסוימת בשם myCar:
+<pre style="text-align: left; direction: ltr;">
+//Instead of:
+Console.WriteLine(myCar.Model); 
+// not possible if Model is not public
+
+// We do:
+Console.WriteLine(myCar.GetModel());
+</pre>
+<br/><br/>
+<h3>Setters</h3>
+ה-Setters מאפשרים לנו לשנות את שדות המחלקה. כאן נכנס עניין אימות הקלט. בואו נתחיל עם Setter פשוט שישנה את המודל של אותה מחלקה:
+<br/>
+הפעולה לא צריכה הפעם להחזיר כלום, אך היא תצטרך לקבל פרמטר שאליו היא תשנה את השדה.
+<pre style="text-align: left; direction: ltr;">
+class Car
+{
+	...
+	private string Model;
+	
+	public string GetModel()
+	{
+		return Model;
+	}
+	public void SetModel(string m)
+	{
+		Model = m;
+	}
+}
+</pre>
+עכשיו, בתוך ה-Setter, נוכל לבדוק עם הערך החדש שקיבלנו בפרמטר תואם את הדרישה (למשל - שנת ייצור לא לפני 1885).
+<BR>
+<B>לחצו "המשך" כדי לתרגל עבודה עם Getters ו-Setters</B>
+</div>
+<div id="l_4" style="display: none;">
+<h1>תרגול - Getters, Setters</h1>
+צרו למחלקה Car פעולות גישה (Getter ו-Setter) לשדה ProductionYear.<br/>
+חתימותיהן של הפונקציות צריכות להיות:
+<pre style="text-align: left; direction: ltr;">
+public void SetProductionYear(int year) { ... }
+public int GetProductionYear() { ... }
+</pre>
+שימו לב! עליכם לממש גם את אימות הקלט בפעולה SetProductionYear!
+</div>
+<br/><br/>
+<input type="button" value="הקודם" onclick="prev()" />
+<input type="button" value="המשך" onclick="next()" />
+
+</body>
+</html>
